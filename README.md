@@ -72,3 +72,14 @@ The classesFromAlignment() function hasn't been built yet. It would restrict cla
 
 The skillPointCost() function runs through a for loop.
 Each skill that exists is checked against an array contained within the base class definition. This array contains only 0's 1's and 2's. An if loop reads the value in that array and from it determines the cost of skill advancement or if it is even allowed with this class.
+
+The classXxxSelection() functions update the selectedClassXxx variables and the displayedClass variable to the base class definition.
+
+The gifXXX() functions are switches that define the base value of whatever attribute they're associated with. Any change is then followed by a script that updates the modifier based upon that current value.
+
+The skillPointAllocation(pointer) function controls the distribution of skill points from the available pool. The argument is a numerical value associated with the button on the DOM that is used to add skill points to a certain skill.  The cost of advancing these skills with points from the pool is determined on a class by class basis.
+It first checks to see if the available skill points have run out.
+It then runs a switch/case that checks the skill point cost as determined by the class and takes from the pool and adds to the skill.
+
+The reset() function runs a for loop that logs output to the console.
+It then reloads the page.

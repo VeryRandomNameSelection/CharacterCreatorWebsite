@@ -1257,15 +1257,12 @@ function giftCHA(){
 
 function skillPointAllocation(pointer){
   if ((Number(SkillPointDisplay.innerText))==0) {
-
   }
 
   switch (displayedClass.SKILLValues.preferred[pointer]) {
     case 0:
-
       SkillPointDisplay.innerText=Number(SkillPointDisplay.innerText)-0
       SkillValues[pointer].textContent=Number(SkillValues[pointer].textContent)+0
-
       break;
 
     case 1:
@@ -1274,18 +1271,13 @@ function skillPointAllocation(pointer){
         SkillPointDisplay.innerText=Number(SkillPointDisplay.innerText)-1
         SkillValues[pointer].textContent=Number(SkillValues[pointer].textContent)+1
       }
-
-
       break;
 
     case 2: 
     if ((Number(SkillPointDisplay.innerText))-2>=0) {
       SkillPointDisplay.innerText=Number(SkillPointDisplay.innerText)-2
       SkillValues[pointer].textContent=Number(SkillValues[pointer].textContent)+1
-      
-
     }
-
       break;
 
   }
