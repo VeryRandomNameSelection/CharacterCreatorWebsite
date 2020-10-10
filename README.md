@@ -51,3 +51,24 @@ It then checks for the condition of this being the first level. If so, it sets t
 The first variable is the remaining skill points displayed on the page, which defaults to 0 upon initialization or reset. The second variable is the sum of the class's base skill points and the intelligence modifier which is multiplied by 4. These two variables come together to define the amount of skill points to be given to the user to spend.
 If the total level is anything other than 1, it defaults to repeating the formula for skill points, making sure that at least one skill point is added every level.
 It then checks the condition of the racial selection drop down menu. If human, an extra skill point is granted.
+
+The CLXUP() functions trigger when the + buttons under the class selection menus are triggered.
+They take in no argument. The first check is to make sure a class has actually been selected from the menu. If not, it takes no action. 
+If so takes in the class level shown in the text on the DOM and advances it by 1 to define the variable ClassLevel#. This is the class advancing a level and this new number will determine the changes in base stats and skill point allocations.
+This number is passed into the master copy of the character's statistics as Toon.ClassOne.Level
+Next the variable displayedClass is set to be equal to the variable selectedClassOne. selectedClassOne is the variable that connects the value of the dropdown menu of classes to their base definitions. The program then tracks the progression of that class as the character advances in levels. This is all done in the classOneSelection() function.
+
+It checks to make sure the maximum level (30) hasn't been reached.
+If not, it sets the DOM object associated with the class level to the new number and then passes that new number into the advancement function, described above.
+Then the skillPointCalculation() function runs.
+
+Once the If loop has been exited, the onLevelUpdate() function runs.
+
+The statAnchor() function retains the current value of the various attribute scores.
+
+The function racialTraits() is a switch/case function that determines initial attribute distribution associated with racial selections.
+
+The classesFromAlignment() function hasn't been built yet. It would restrict class selection based upon alignment selection. 
+
+The skillPointCost() function runs through a for loop.
+Each skill that exists is checked against an array contained within the base class definition. This array contains only 0's 1's and 2's. An if loop reads the value in that array and from it determines the cost of skill advancement or if it is even allowed with this class.

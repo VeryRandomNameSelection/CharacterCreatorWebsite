@@ -353,18 +353,19 @@ function skillPointCalculation(points) {
 
 function CL1UP() {
   if (DropDownMenus.classONE.selectedIndex == 0) {
-
   }
   
   else {
     ClassLevel1=Number(CL1.innerText) + 1;
     Toon.ClassOne.Level=ClassLevel1
     displayedClass=selectedClassOne
+
     if (ClassLevel1+ClassLevel2+ClassLevel3<=30){
       CL1.innerText=ClassLevel1;
       advancement(ClassLevel1)
       skillPointCalculation(selectedClassOne.SKILLValues.points)
     }
+
     onLevelUpdate()
   }
 
@@ -374,8 +375,8 @@ function CL2UP() {
   console.log('step-one')
   if (DropDownMenus.classTWO.selectedIndex == 0) {
     console.log('if')
-    
   }
+
   else {
     console.log('else-start')
     ClassLevel2=Number(CL2.innerText) + 1;
@@ -387,24 +388,20 @@ function CL2UP() {
       CL2.innerText=ClassLevel2;
       console.log(ClassLevel2)
       console.log(lastLevel)
-
       advancement(ClassLevel2)
       skillPointCalculation(selectedClassTwo.SKILLValues.points)
       console.log('else-if-end')
-      
     }
     console.log('else-end')
-    
     onLevelUpdate()
     console.log('onLevelUpdate script')
   }
-
 }
 
 function CL3UP() {
   if (DropDownMenus.classTHREE.selectedIndex == 0) {
-
   }
+
   else {
     ClassLevel3=Number(CL3.innerText) + 1;
     displayedClass=selectedClassThree
@@ -414,10 +411,8 @@ function CL3UP() {
       advancement(ClassLevel3)
       skillPointCalculation(selectedClassThree.SKILLValues.points)
     }
-
     onLevelUpdate()
   }
-
 }
 
 function statAnchor(){
@@ -915,28 +910,18 @@ function skillPointCost() {
   let i;
   for (i=0;i<27;i++){
     if (displayedClass.SKILLValues.preferred[i]==0){
-      
       SkillButtons[i].className="btn ";
       SkillButtons[i].className+="skillCostProhibited"
-
     }
-
     else if (displayedClass.SKILLValues.preferred[i]==1){
-
       SkillButtons[i].className="btn ";
       SkillButtons[i].className+="skillCostOne"
-
     }
-
     else if (displayedClass.SKILLValues.preferred[i]==2){
-
       SkillButtons[i].className="btn ";
       SkillButtons[i].className+="skillCostTwo"
-
     }
-    
   }
-
 }
 
 function classOneSelection(){
