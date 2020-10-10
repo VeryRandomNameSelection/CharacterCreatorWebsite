@@ -115,27 +115,28 @@ function delevel() {
   if (lastLevel>=0) {
     CharacterBook.pop()
     console.log(lastLevel)
+    console.log(CharacterBook.length)
     console
     //lastLevel = length(CharacterBook)
-    TotalLevel.innerText = CharacterBook[lastLevel].totalLevel
-    displayedClass = CharacterBook[lastLevel].displayedClass
-    DropDownMenus.classONE.selectedIndex = CharacterBook[lastLevel].class1
-    DropDownMenus.classTWO.selectedIndex = CharacterBook[lastLevel].class2
-    DropDownMenus.classTHREE.selectedIndex = CharacterBook[lastLevel].class3
-    CL1.innerText = +CharacterBook[lastLevel].classLevel1
+    TotalLevel.innerText = CharacterBook[-1].totalLevel
+    displayedClass = CharacterBook[-1].displayedClass
+    DropDownMenus.classONE.selectedIndex = CharacterBook[-1].class1
+    DropDownMenus.classTWO.selectedIndex = CharacterBook[-1].class2
+    DropDownMenus.classTHREE.selectedIndex = CharacterBook[-1].class3
+    CL1.innerText = +CharacterBook[-1].classLevel1
     ClassLevel1 = CL1.innerText
-    CL2.innerText = CharacterBook[lastLevel].classLevel2
+    CL2.innerText = CharacterBook[-1].classLevel2
     ClassLevel2 = CL2.innerText
-    CL3.innerText = CharacterBook[lastLevel].classLevel3
+    CL3.innerText = CharacterBook[-1].classLevel3
     ClassLevel3 = CL3.innerText
-    attributePoints.innerText = CharacterBook[lastLevel].attributePoints
-    bonusPoints.innerText = CharacterBook[lastLevel].bonusPoints
-    SkillPointDisplay.innerText = CharacterBook[lastLevel].skillPoints
-    characterAlignment.selectedIndex = CharacterBook[lastLevel].alignment
-    Race.selectedIndex = CharacterBook[lastLevel].race
-    Printout.innerHTML = CharacterBook[lastLevel].printout
-    paintTheThing(CharacterBook[lastLevel].attributeArray, liveAttrValues)
-    paintTheThing(CharacterBook[lastLevel].skillValuesArray, SkillValues)
+    attributePoints.innerText = CharacterBook[-1].attributePoints
+    bonusPoints.innerText = CharacterBook[-1].bonusPoints
+    SkillPointDisplay.innerText = CharacterBook[-1].skillPoints
+    characterAlignment.selectedIndex = CharacterBook[-1].alignment
+    Race.selectedIndex = CharacterBook[-1].race
+    Printout.innerHTML = CharacterBook[-1].printout
+    paintTheThing(CharacterBook[-1].attributeArray, liveAttrValues)
+    paintTheThing(CharacterBook[-1].skillValuesArray, SkillValues)
     lastLevel-=1
     attributeMods()
   }
