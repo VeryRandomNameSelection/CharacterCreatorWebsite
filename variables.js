@@ -226,14 +226,14 @@ let selectedClassOne=Classes.Null
 let selectedClassTwo=Classes.Null
 let selectedClassThree=Classes.Null
 
+//clarify difference between displayedClass and currentClass
 let displayedClass=Classes.Null.NAME
-
 let currentClass = Classes.Null
-
+// explain what the indexes do
 let classOneIndex
 let classTwoIndex
 let classThreeIndex
-
+// explain what boop does
 var boop
 
 const currentStats ={
