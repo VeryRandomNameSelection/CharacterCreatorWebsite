@@ -83,3 +83,10 @@ It then runs a switch/case that checks the skill point cost as determined by the
 
 The reset() function runs a for loop that logs output to the console.
 It then reloads the page.
+
+#featBook.js
+
+The featTest(classLevel) function contains logic for translating class level and total level into printouts and drop down menus on the DOM. 
+For the messages it calls the featText(classLevel) function and for the drop down menus it calls the featButtons(why) function.
+featText(classLevel) displays a line of html on the DOM.
+featButtons(why) creates a drop down menu in a selected portion of the DOM using html and sets the text in the selected value to the value of (why)

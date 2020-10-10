@@ -11,18 +11,13 @@ function featTest (classLevel) {
   if (TotalLevel.innerText == 1) {
 
     if (DropDownMenus.raceMenu.selectedIndex == 1){
-      bonusFeat = "Bonus - Human"
-      
+      bonusFeat = "Bonus - Human"      
       featButtons(bonusFeat)
-
-
     }
-    else {
 
-      
+    else {  
   
     }
-
   }
 
   switch(displayedClass){
@@ -56,34 +51,36 @@ function featTest (classLevel) {
         if (classLevel %3 == 0){
           feat='Barbarian Feat'
           featButtons(feat)
+        }
+
+        else{
 
         }
-        else{
-        }
       }
+
       // post-epic
       else if (classLevel>20&&classLevel<=30){
         if (classLevel %3 == 0 && classLevel == 24) {
           feat='Epic Barbarian Feat'
           featButtons(feat)
-
           epicFeat='Epic Barbarian Feat'
           featButtons(epicFeat)
-
         }
+
         else if(classLevel %3 == 0) {
           feat='Epic Barbarian Feat'
           featButtons(feat)
-
         }
+
         else if(classLevel == 23) {
           bonusFeat='Epic Barbarian DR'
         }
+
         else if(classLevel == 28) {
           feat='Epic Barbarian Feat'
           featButtons(feat)
-
         }
+
         else {
 
         }
@@ -103,20 +100,23 @@ function featTest (classLevel) {
           if (classLevel % 3 == 0){
             feat = 'Bard Feat'
           }
+
           else {
 
           }
         }
+
         // post-epic
         else if (classLevel>20&&classLevel<=30) {
           if (classLevel %3 == 0) {
             feat='Epic Bard Feat'
           }
+
           else if ((classLevel-20) % 3 == 0) {
             epicFeat='Epic Bard Feat'
           }
         }
-          break;
+        break;
           
       case Classes.Cleric:
         // pre-epic
@@ -135,22 +135,25 @@ function featTest (classLevel) {
             feat = 'Cleric Feat'
             featButtons(feat)
           }
+
           else {
 
           }
         }
+
         // post-epic
         else if (classLevel>20&&classLevel<=30) {
           if (classLevel %3 == 0) {
             feat='Epic Cleric Feat'
             featButtons(feat)
           }
+
           else if ((classLevel-20) % 3 == 0) {
             epicFeat='Epic Cleric Feat'
             featButtons(epicFeat)
           }
         }
-          break;
+        break;
                     
       case Classes.Druid:
         // pre-epic
@@ -211,37 +214,36 @@ function featTest (classLevel) {
             case 26:
               bonusFeat = "Infinite Elemental Shape"
               break;
-            
           }
           
           if (classLevel %3 == 0){
             feat='Druid Feat'
             featButtons(feat)
           }
+
           else{
           }
         }
+
         // post-epic
         else if (classLevel>20&&classLevel<=30){
           if (classLevel %3 == 0 && classLevel == 24) {
             feat='Epic Druid Feat'
             featButtons(feat)
-
             epicFeat='Epic Druid Feat'
             featButtons(epicFeat)
-
           }
+
           else if(classLevel %3 == 0) {
             feat='Epic Druid Feat'
-            featButtons(feat)
-
-            
+            featButtons(feat)            
           }
+
           else if(classLevel == 28) {
             epicFeat='Epic Druid Feat'
             featButtons(epicFeat)
-
           }
+
           else {
   
           }
@@ -253,16 +255,15 @@ function featTest (classLevel) {
           if (classLevel %2 == 0){
             feat='Fighter Feat'
             featButtons(feat)
-
             bonusFeat=''
             epicFeat=''
           }
+
           else if (classLevel %2 != 0){
             feat=''
             bonusFeat=''
             epicFeat=''
           }
-
         }
         
         // post-epic
@@ -272,25 +273,20 @@ function featTest (classLevel) {
             bonusFeat=''
             epicFeat='Epic Fighter Feat'
             featButtons(epicFeat)
-
           }
           else if (classLevel %2 != 0){
             feat=''
             bonusFeat=''
             epicFeat=''}}
-            
-            break;
+          break;
   
-            
       case Classes.Monk:
         // pre-epic
-        if (classLevel<21){
-          
+        if (classLevel<21){          
           switch(Number(classLevel)){
             case 1: 
             feat = 'Monk Feat'
             featButtons(feat)
-
             bonusFeat = '8 monk feats'
             break;
             case 2:
@@ -342,29 +338,30 @@ function featTest (classLevel) {
           if (classLevel %3 == 0){
             feat='Monk Feat'
           }
+
           else{
           }
         }
+
         // post-epic
         else if (classLevel>20&&classLevel<=30){
           if(classLevel == 30) {
             feat='Epic Monk Feat'
             featButtons(epicFeat)
-
             epicFeat='Epic Monk Feat'
             featButtons(epicFeat)
-
           }
+
           else if(classLevel %5 == 0) {
             epicFeat='Epic Monk Feat'
             featButtons(epicFeat)
-
           }
+
           else if (classLevel %3 == 0) {
             feat='Epic Monk Feat'
             featButtons(epicFeat)
-
           }
+
           else {
 
           }
@@ -379,7 +376,6 @@ function featTest (classLevel) {
               case 1: 
               feat = 'Paladin Feat'
               featButtons(feat)
-
               bonusFeat = 'Detect Evil / Lay on Hands'
               epicFeat = 'Divine Grace & Health'
               break;
@@ -401,21 +397,23 @@ function featTest (classLevel) {
               featButtons(feat)
 
             }
+
             else{
             }
           }
+
           // post-epic
           else if (classLevel>20&&classLevel<=30){
             if(classLevel %3 == 0) {
               feat='Epic Paladin Feat'
               featButtons(feat)
-
             }
+
             else if((classLevel-20) % 3 == 0) {
               epicFeat='Epic Paladin Feat'
               featButtons(epicFeat)
-
             }
+
             else {
   
             }
@@ -462,44 +460,41 @@ function featTest (classLevel) {
           else if (classLevel == 15) {
             feat='Ranger Feat'
             featButtons(feat)
-
             bonusFeat = 'Ranger Bonus'
             featButtons(bonusFeat)
-
-            
-
           }
+
           else{
+
           }
         }
+
         // post-epic
         else if (classLevel>20&&classLevel<=30){
           if(classLevel %3 == 0 && classLevel %5 != 0) {
             feat='Epic Ranger Feat'
             featButtons(feat)
-
           }
+
           else if((classLevel-20) % 3 == 0) {
             epicFeat='Epic Ranger Feat'
             featButtons(epicFeat)
-
           }
+
           else if(classLevel == 25) {
             feat = 'Epic Ranger Feat'
-            featButtons(feat)
-            
+            featButtons(feat)            
             bonusFeat='Epic Ranger Bonus'
             featButtons(bonusFeat)
-
           }
+
           else if(classLevel == 30) {
             feat = 'Epic Ranger Feat'
             featButtons(feat)
-
             bonusFeat='Epic Ranger Bonus'
             featButtons(bonusFeat)
-
           }
+
           else {
 
           }
@@ -541,7 +536,6 @@ function featTest (classLevel) {
               bonusFeat = "Keen Sense"
               epicFeat = "Rogue Bonus"
               featButtons(epicFeat)
-
               break;
             case 11:
               bonusFeat = "Sneak Attack 6d6"
@@ -551,7 +545,6 @@ function featTest (classLevel) {
               bonusFeat = "Sneak Attack 7d6"
               epicFeat = "Rogue Bonus"
               featButtons(epicFeat)
-
               break;
             case 14:
               bonusFeat = "Uncanny Dodge 4"
@@ -562,7 +555,6 @@ function featTest (classLevel) {
             case 16:
               bonusFeat = "Rogue Bonus"
               featButtons(epicFeat)
-
               break;
             case 17:
               bonusFeat = "Uncanny Dodge 5"
@@ -572,22 +564,22 @@ function featTest (classLevel) {
               bonusFeat = "Sneak Attack 10d6"
               epicFeat = "Rogue Bonus"
               featButtons(epicFeat)
-
               break;
             case 20:
               bonusFeat = "Uncanny Dodge 6"
               break;
-
-            }
+          }
           
           if (classLevel %3 == 0){
             feat='Rogue Feat'
             featButtons(feat)
+          }
+
+          else{
 
           }
-          else{
-          }
         }
+
         // post-epic
         else if (classLevel>20&&classLevel<=30){
           switch(Number(classLevel)){
@@ -607,24 +599,24 @@ function featTest (classLevel) {
               bonusFeat = "Sneak Attack 15d6"
               break;
           }
+
           if(classLevel %3 == 0 && classLevel !=24) {
             feat='Epic Rogue Feat'
             featButtons(feat)
-
           }
+
           else if(classLevel == 28) {
             epicFeat='Epic Rogue Bonus'
             featButtons(epicFeat)
-
           }
+
           else if(classLevel == 24) {
             feat = 'Epic Rogue Feat'
             featButtons(feat)
-
             bonusFeat='Epic Rogue Bonus'
             featButtons(bonusFeat)
-
           }
+
           else {
 
           }
@@ -638,48 +630,45 @@ function featTest (classLevel) {
             case 1:
               feat = 'Sorcerer Feat'
               featButtons(feat)
-
               break;
           }
           
           if (classLevel % 3 == 0){
             feat = 'Sorcerer Feat'
             featButtons(feat)
-
           }
+
           else {
 
           }
         }
+
         // post-epic
         else if (classLevel>20&&classLevel<=30) {
           if (classLevel %3 == 0) {
             feat='Epic Sorcerer Feat'
             featButtons(feat)
-
           }
           else if ((classLevel-20) % 3 == 0) {
             epicFeat='Epic Sorcerer Feat'
             featButtons(epicFeat)
-
           }
         }
           break;
 
       case Classes.Wizard:
+
         // pre-epic
         if (classLevel<21) {
           switch(Number(classLevel)) {
             case 1:
               feat = 'Wizard Feat'
               featButtons(feat)
-
               break;
           }
           if (classLevel == 15) {
             feat = 'Wizard Feat'
             featButtons(feat)
-
             bonusFeat = 'Wizard Feat'
             featButtons(bonusFeat)
 
@@ -687,49 +676,41 @@ function featTest (classLevel) {
           else if(classLevel % 3 == 0){
             feat = 'Wizard Feat'
             featButtons(feat)
-
           }
           else if(classLevel % 5 == 0){
             bonusFeat = 'Wizard Feat'
             featButtons(bonusFeat)
-
-
           }
         }
+
         // post-epic
         else if (classLevel>20&&classLevel<=30) {
           if (classLevel == 30) {
             bonusFeat = 'Epic Wizard Feat'
             featButtons(bonusFeat)
-
             feat='Epic Wizard Feat'
             featButtons(feat)
-
-
           }
+
           else if (classLevel %3 == 0) {
             feat='Epic Wizard Feat'
             featButtons(feat)
-
           }
+
           else if ((classLevel-20) % 3 == 0) {
             epicFeat='Epic Wizard Feat'
             featButtons(epicFeat)
-
           }
+
           else if (classLevel == 25) {
             bonusFeat = 'Epic Wizard Feat'
             featButtons(bonusFeat)
-
-
           }
         }
-          break;
-        
+          break;        
   }
 
   featText(classLevel)
-
 
 }
 
@@ -755,5 +736,4 @@ function featButtons(why) {
         <option selected value="">${why}</option>
        </select>
   `
-
 }
