@@ -84,9 +84,64 @@ It then runs a switch/case that checks the skill point cost as determined by the
 The reset() function runs a for loop that logs output to the console.
 It then reloads the page.
 
-#featBook.js
+# featBook.js
 
 The featTest(classLevel) function contains logic for translating class level and total level into printouts and drop down menus on the DOM. 
 For the messages it calls the featText(classLevel) function and for the drop down menus it calls the featButtons(why) function.
 featText(classLevel) displays a line of html on the DOM.
 featButtons(why) creates a drop down menu in a selected portion of the DOM using html and sets the text in the selected value to the value of (why)
+
+# domObjects.js
+
+This is a collection of variables that allow the code to manipulate the objects on the DOM.
+
+Of note, the var resetable cooresponds to most values on the screen and allows the reset command to change them all back to their default values.
+
+# downButton.js
+
+This is an attempt to allow the user to go back to a previous level and make different choices. 
+
+It is still under development. The delevel function sometimes stops working when trying to relevel.
+
+The class CharacterSheet{} is created. It takes the following input:
+totalLevel        The total character level
+DisplayedClass    The most recent class selection and all it's attributes
+class1            The first class selection and all it's attributes
+class2            The second class selection and all it's attributes
+class3            The third class selection and all it's attributes
+classLevel1       The first class level
+classLevel2       The second class level
+classLevel3       The third class level
+attributePoints   The remaining pool of attribute points
+bonusPoints       The remaining pool of bonus attribute points
+skillPoints       The remaining pool of skill points
+alignment         The alignment selection
+race              The race selection
+attributeArray    Snapshot of the values assigned to the attributes from the attribute pool
+skillValuesArray  Snapshot of the values assigned to the various skills from the skill pool
+printout          A collection of html that is printed to the screen after advancing a level
+
+The onLevelUpdate() function first takes a snapshot of the document elements attrValues and SkillValues and assigns those objects to the variables liveAttrValues and SkillValues.
+These DOM objects are then run through an Array.from() to produce an array of text values for the skill point and attribute point spending selections.
+The same procedure is done on the attribute and bonus attribute point pools.
+Next a switch/case controls the value of the currentClass variable, which tracks the most recent class that has been requested to advance. This currentClass variable is going to be one of the three selectedClassXxx variables or the loop will just exit.
+ClassXxxIndex variables are a way of tying the drop down menu selections to a variable, as are the rest of the following variables until boop.
+boop is a dummy variable that creates an instance of the class CharacterSheet and takes in all of the required arguments.
+
+## This part needs debugged
+
+It then pushes this instance onto an array called CharacterBook.
+The last step is to set the lastLevel variable to the currentLevel variable -1. This is meant to be a way of keeping track of what instance of CharacterBook the delevel command will point to.
+
+The delevel() function is mean to revert the screen back to the last level taken as if you just advanced to it. 
+
+## known bug
+
+The connection between the CharacterBook instance and the level the user is trying to advance to become uncoupled due to faulty logic in the stacking and unstacking of the CharacterBook array.
+
+When the delevel() function is called it first checks to see if the lastLevel variable is > 0. It is checking so see if the level has been advanced to at least one.
+It then removes the last object in the CharacterBook array.
+It then displays to the console the lastLevel variable.
+It then pushes to the DOM all of the values in the CharacterBook instance pointed to by the lastLevel variable.
+
+// why would I not just skip the lastLevel variable and use [-1]

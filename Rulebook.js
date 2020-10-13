@@ -264,7 +264,7 @@ function advancement(classLevel){
   skillPointCost()
 
   if (ClassLevel1+ClassLevel2+ClassLevel3<=30) {
-    TotalLevel.innerText=ClassLevel1+ClassLevel2+ClassLevel3
+    TotalLevel.innerText=+TotalLevel.innerText+1
     if (TotalLevel.innerText %4 == 0) {
       bonusPoints.innerText=Number(bonusPoints.innerText)+1
     }
@@ -352,10 +352,13 @@ function skillPointCalculation(points) {
 }
 
 function CL1UP() {
+  console.log("CL1UP")
   if (DropDownMenus.classONE.selectedIndex == 0) {
+    console.log("  if DropDownMenus.classONE.selectedIndex == 0")
   }
   
   else {
+    onLevelUpdate(1)
     ClassLevel1=Number(CL1.innerText) + 1;
     Toon.ClassOne.Level=ClassLevel1
     displayedClass=selectedClassOne
@@ -366,9 +369,7 @@ function CL1UP() {
       skillPointCalculation(selectedClassOne.SKILLValues.points)
     }
 
-    onLevelUpdate()
   }
-
 }
 
 function CL2UP() {
@@ -387,13 +388,12 @@ function CL2UP() {
       console.log(ClassLevel1+ClassLevel2+ClassLevel3)
       CL2.innerText=ClassLevel2;
       console.log(ClassLevel2)
-      console.log(lastLevel)
       advancement(ClassLevel2)
       skillPointCalculation(selectedClassTwo.SKILLValues.points)
       console.log('else-if-end')
     }
     console.log('else-end')
-    onLevelUpdate()
+    onLevelUpdate(2)
     console.log('onLevelUpdate script')
   }
 }
@@ -411,8 +411,9 @@ function CL3UP() {
       advancement(ClassLevel3)
       skillPointCalculation(selectedClassThree.SKILLValues.points)
     }
-    onLevelUpdate()
+    onLevelUpdate(3)
   }
+  
 }
 
 function statAnchor(){
@@ -1282,6 +1283,7 @@ function skillPointAllocation(pointer){
 
   }
 }
+
 function reset() {
   for (let index = 0; index < resetable.length; index++) {
     console.log(resetable[index].selectedIndex)
@@ -1291,4 +1293,3 @@ function reset() {
   location.reload()
   return false
 }
-

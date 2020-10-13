@@ -19,5 +19,26 @@ const CL2 = document.getElementById('CL2')
 const CL2BTN = document.getElementById('CL2BTN').addEventListener('click', CL2UP)
 const CL3 = document.getElementById('CL3')
 const CL3BTN = document.getElementById('CL3BTN').addEventListener('click', CL3UP)
-
 var resetable = document.getElementsByClassName('resetable')
+const DropDownMenus = {
+  alignmentMenu: document.querySelector('#Alignment'),
+  raceMenu: document.querySelector('#Race'),
+  classONE: document.querySelector('#classONE'),
+  classTWO: document.querySelector('#classTWO'),
+  classTHREE: document.querySelector('#classTHREE'),
+}
+let currentAttributePoints = []
+let AP = Array.from(attributePoints)
+AP.forEach((boop)=>{currentAttributePoints.push(boop.textContent)})
+
+currentBonusPoints = []
+let BP = Array.from(bonusPoints)
+BP.forEach((boop)=>{currentBonusPoints.push(boop.textContent)})
+
+currentAttrValues = []
+let AV = Array.from(liveAttrValues)
+AV.forEach((boop)=>{currentAttrValues.push(boop.textContent)})
+
+currentSkillValues = []
+let SV = Array.from(SkillValues)
+SV.forEach((boop)=>{currentSkillValues.push(boop.textContent)})

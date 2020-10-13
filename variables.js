@@ -1,10 +1,4 @@
-const DropDownMenus = {
-  alignmentMenu: document.querySelector('#Alignment'),
-  raceMenu: document.querySelector('#Race'),
-  classONE: document.querySelector('#classONE'),
-  classTWO: document.querySelector('#classTWO'),
-  classTHREE: document.querySelector('#classTHREE'),
-}
+
 
 const Toon = {
   defaultStats: {
@@ -248,3 +242,81 @@ const currentStats ={
 const score    = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10, 11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
 const addsub   = [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9]
 const modtable = [-5,-5,-4,-4,-3,-3,-2,-2,-1,-1, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10]
+
+let currentLevel = 0
+let displayedClass = Classes.Null
+classOneIndex = 0
+classTwoIndex = 0
+classThreeIndex = 0
+ClassLevel1 = 0
+ClassLevel2 = 0
+ClassLevel3 = 0
+totalAttrPts = 0
+totalBonusPts = 0
+totalSkillPts = 0
+thisAlignment = 0
+thisRace = 0
+currentAttrValues = 0
+currentSkillValues = 0
+let thisPage = Printout.textContent
+let CharacterBook = [];
+let lastLevel 
+let fromCL
+class CharacterSheet {
+  constructor(
+    totalLevel,
+    displayedClass,
+    class1,
+    class2,
+    class3,
+    classLevel1,
+    classLevel2,
+    classLevel3,
+    attributePoints,
+    bonusPoints,
+    skillPoints,
+    alignment,
+    race,
+    attributeArray,
+    skillValuesArray,
+    printout
+    ) 
+    {
+    this.totalLevel = totalLevel
+    this.displayedClass = displayedClass
+    this.class1 = class1
+    this.class2 = class2
+    this.class3 = class3
+    this.classLevel1 = classLevel1
+    this.classLevel2 = classLevel2
+    this.classLevel3 = classLevel3
+    this.attributePoints = attributePoints
+    this.bonusPoints = bonusPoints
+    this.skillPoints = skillPoints
+    this.alignment = alignment
+    this.race = race
+    this.attributeArray = attributeArray
+    this.skillValuesArray = skillValuesArray
+    this.printout = printout
+  }
+}
+
+boop = new CharacterSheet(
+  currentLevel,
+  displayedClass,
+  classOneIndex,
+  classTwoIndex,
+  classThreeIndex,
+  ClassLevel1,
+  ClassLevel2,
+  ClassLevel3,
+  totalAttrPts,
+  totalBonusPts,
+  totalSkillPts,
+  thisAlignment,
+  thisRace,
+  currentAttrValues,
+  currentSkillValues,
+  thisPage
+)
+CharacterBook.push(boop)

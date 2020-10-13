@@ -1,43 +1,5 @@
-class CharacterSheet {
-  constructor(
-    totalLevel,
-    displayedClass,
-    class1,
-    class2,
-    class3,
-    classLevel1,
-    classLevel2,
-    classLevel3,
-    attributePoints,
-    bonusPoints,
-    skillPoints,
-    alignment,
-    race,
-    attributeArray,
-    skillValuesArray,
-    printout
-    ) 
-    {
-    this.totalLevel = totalLevel
-    this.displayedClass = displayedClass
-    this.class1 = class1
-    this.class2 = class2
-    this.class3 = class3
-    this.classLevel1 = classLevel1
-    this.classLevel2 = classLevel2
-    this.classLevel3 = classLevel3
-    this.attributePoints = attributePoints
-    this.bonusPoints = bonusPoints
-    this.skillPoints = skillPoints
-    this.alignment = alignment
-    this.race = race
-    this.attributeArray = attributeArray
-    this.skillValuesArray = skillValuesArray
-    this.printout = printout
-  }
-}
-
-function onLevelUpdate() {
+function onLevelUpdate(whichClass) {
+  fromCL=whichClass
   liveAttrValues = document.getElementsByClassName('attrValues')
   SkillValues = document.getElementsByClassName('SkillValues')
 
@@ -107,40 +69,53 @@ function onLevelUpdate() {
     thisPage
   )
   CharacterBook.push(boop)
-  lastLevel=currentLevel-1
-
+  //  lastLevel=currentLevel-1
+//  console.log(lastLevel)
 }
 
-function delevel() {
-  if (lastLevel>=0) {
-    console.log(CharacterBook.length)
-    CharacterBook.pop()
-    console.log(CharacterBook.length)
-    console
-    //lastLevel = length(CharacterBook)
-    TotalLevel.innerText = CharacterBook[CharacterBook.length-1].totalLevel
-    displayedClass = CharacterBook[CharacterBook.length-1].displayedClass
-    DropDownMenus.classONE.selectedIndex = CharacterBook[CharacterBook.length-1].class1
-    DropDownMenus.classTWO.selectedIndex = CharacterBook[CharacterBook.length-1].class2
-    DropDownMenus.classTHREE.selectedIndex = CharacterBook[CharacterBook.length-1].class3
-    CL1.innerText = +CharacterBook[CharacterBook.length-1].classLevel1
+function delevel(fromCL) {
+  CharacterBook.pop()
+
+  //lastLevel = length(CharacterBook)
+  TotalLevel.innerText = +TotalLevel.innerText
+  displayedClass = CharacterBook[TotalLevel.innerText].displayedClass
+  DropDownMenus.classONE.selectedIndex = CharacterBook[TotalLevel.innerText].class1
+  DropDownMenus.classTWO.selectedIndex = CharacterBook[TotalLevel.innerText].class2
+  DropDownMenus.classTHREE.selectedIndex = CharacterBook[TotalLevel.innerText].class3
+  
+  //have a switch be fired on the fromCL argument that determines which character level needs to go down
+  switch(fromCL){
+    case 1://CL1
+    CL1.innerText = +CharacterBook[TotalLevel.innerText].ClassLevel1
     ClassLevel1 = CL1.innerText
-    CL2.innerText = CharacterBook[CharacterBook.length-1].classLevel2
+    break;
+    case 2://CL2
+    CL2.innerText = +CharacterBook[TotalLevel.innerText].ClassLevel2
     ClassLevel2 = CL2.innerText
-    CL3.innerText = CharacterBook[CharacterBook.length-1].classLevel3
+    break;
+    case 3://CL3
+    CL3.innerText = +CharacterBook[TotalLevel.innerText].ClassLevel3
     ClassLevel3 = CL3.innerText
-    attributePoints.innerText = CharacterBook[CharacterBook.length-1].attributePoints
-    bonusPoints.innerText = CharacterBook[CharacterBook.length-1].bonusPoints
-    SkillPointDisplay.innerText = CharacterBook[CharacterBook.length-1].skillPoints
-    characterAlignment.selectedIndex = CharacterBook[CharacterBook.length-1].alignment
-    Race.selectedIndex = CharacterBook[CharacterBook.length-1].race
-    Printout.innerHTML = CharacterBook[CharacterBook.length-1].printout
-    paintTheThing(CharacterBook[CharacterBook.length-1].attributeArray, liveAttrValues)
-    paintTheThing(CharacterBook[CharacterBook.length-1].skillValuesArray, SkillValues)
-    lastLevel-=1
-    attributeMods()
+    break;
+    default:
+    break;
   }
 
+  attributePoints.innerText = CharacterBook[TotalLevel.innerText].attributePoints
+  bonusPoints.innerText = CharacterBook[TotalLevel.innerText].bonusPoints
+  SkillPointDisplay.innerText = CharacterBook[TotalLevel.innerText].skillPoints
+  characterAlignment.selectedIndex = CharacterBook[TotalLevel.innerText].alignment
+  Race.selectedIndex = CharacterBook[TotalLevel.innerText].race
+  Printout.innerHTML = CharacterBook[TotalLevel.innerText].printout
+  console.log(CharacterBook.length)
+  console.log(CharacterBook)
+  paintTheThing(CharacterBook[TotalLevel.innerText].attributeArray, liveAttrValues)
+  paintTheThing(CharacterBook[TotalLevel.innerText].skillValuesArray, SkillValues)
+//  lastLevel-=1
+  attributeMods()
+//  if (CharacterBook.length>=0) {
+//
+//  }
 }
 
 function paintTheThing(thisIsAnArray, thisIsANodeList) {
@@ -167,20 +142,3 @@ function paintTheThing(thisIsAnArray, thisIsANodeList) {
 //  'null',
 //  'null')
 //let CharacterBook = [page1];
-let CharacterBook = [];
-let lastLevel 
-let currentAttributePoints = []
-let AP = Array.from(attributePoints)
-AP.forEach((boop)=>{currentAttributePoints.push(boop.textContent)})
-
-currentBonusPoints = []
-let BP = Array.from(bonusPoints)
-BP.forEach((boop)=>{currentBonusPoints.push(boop.textContent)})
-
-currentAttrValues = []
-let AV = Array.from(liveAttrValues)
-AV.forEach((boop)=>{currentAttrValues.push(boop.textContent)})
-
-currentSkillValues = []
-let SV = Array.from(SkillValues)
-SV.forEach((boop)=>{currentSkillValues.push(boop.textContent)})
